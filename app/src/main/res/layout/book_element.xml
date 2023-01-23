@@ -18,13 +18,14 @@
             <ImageView
                 android:id="@+id/ivThumbnail"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:background="@android:color/transparent"
                 android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars"
                 />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="5dp"
                 android:layout_height="wrap_content" />
 
 
@@ -36,13 +37,14 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="Vista razón lanzamiento con fuerza pública"
                     android:maxLines="2"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textStyle="bold"
+                    tools:text="@string/book_title_test"
 
                     />
 
@@ -50,15 +52,28 @@
                     android:id="@+id/tvRelease"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
+                    android:textSize="12sp"
                     android:text="Agregado: 02 Mar 2016"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    />
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/tvSynopsis"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="4"
+                    android:textSize="14sp"
+                    android:layout_gravity="center_vertical|end"
+                    android:paddingEnd="5dp"
+                    tools:text="@string/book_description_test"
+
                     />
             </LinearLayout>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="3dp"
             />
 </LinearLayout>
 

@@ -12,8 +12,8 @@ data class BookDetail(
     @SerializedName("author")
     val author: String? = null,
 
-    @SerializedName("year")
-    val year: String? = null,
+    @SerializedName("release")
+    val release: String? = null,
 
     @SerializedName("edition")
     val edition: String? = null,
@@ -26,6 +26,9 @@ data class BookDetail(
 
     @SerializedName("genre")
     val genre: String? = null,
+
+    @SerializedName("synopsis")
+    val synopsis: String? = null,
 
     @SerializedName("thumbnail")
     val thumbnail: String? = null

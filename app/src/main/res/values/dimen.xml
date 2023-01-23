@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="splash_app">15sp</dimen>
-    <dimen name="splash_autor">12sp</dimen>
+    <dimen name="splash_app">20sp</dimen>
+    <dimen name="splash_autor">15sp</dimen>
 </resources>
