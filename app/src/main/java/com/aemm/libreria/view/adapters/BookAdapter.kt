@@ -32,7 +32,7 @@ class BookAdapter(private val context: Context, private val listBooks: ArrayList
         val book = this.listBooks[position]
         holder.tvTitle.text = book.title
         holder.tvSynopsis.text = book.synopsis
-        holder.tvRelease.text = context.getString(R.string.book_release_label).plus(book.release)
+        holder.tvRelease.text = context.getString(R.string.book_release_label, book.release)
 
         Glide.with(context)
             .load(book.thumbnail)
@@ -46,10 +46,6 @@ class BookAdapter(private val context: Context, private val listBooks: ArrayList
                 it.findNavController().navigate(directions)
             }
         }
-
-
-        //Para los clicks
-
     }
 
     override fun getItemCount(): Int {
