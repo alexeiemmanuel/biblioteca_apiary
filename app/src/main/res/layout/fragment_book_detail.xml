@@ -99,9 +99,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
 
+                <TextView
+                    android:id="@+id/tvEditorial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/book_editorial_test"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/grey_60" />
+                <TextView
+                    android:id="@+id/tvIsbn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@string/book_isbn_test"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                    android:textColor="@color/grey_60" />
                 <TextView
                     android:id="@+id/tvRelease"
                     android:layout_width="match_parent"

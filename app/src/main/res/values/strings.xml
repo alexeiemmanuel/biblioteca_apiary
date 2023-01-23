@@ -3,7 +3,9 @@
     <string name="app_autor">Autor: Alexei Emmanuel Martínez Mendoza</string>
     <string name="app_version">Versión: 1.0</string>
 
-    <string name="book_release_label">Agregado: </string>
+    <string name="book_release_label">Agregado: %s</string>
+    <string name="book_isbn_label">ISBN: %s</string>
+    <string name="book_editorial_label">Editorial: %s</string>
 
     <string name="message_network_error_title">Error de red.</string>
     <string name="message_network_error_message">Upps los sentimos no tienes conexión a internet.</string>
@@ -12,8 +14,9 @@
     <!-- Textos de prueba para que se muestren en el diseño de las layouts -->
     <string name="book_title_test">La luna es una cruel amante</string>
     <string name="book_genre_test">Ciencia ficción</string>
-    <string name="book_isbn_test">912235636548</string>
+    <string name="book_isbn_test">ISBN: 912235636548</string>
     <string name="book_author_test">Robert A. Heinlein</string>
-    <string name="book_release_test">05 Apr 1988</string>
+    <string name="book_release_test">Agregado: 05 Apr 1988</string>
+    <string name="book_editorial_test">Editorial: Porrua</string>
     <string name="book_description_test">Aunque sus abuelos fueron recluidos en su día en la colonia, Mannie nació libre y eso supone una gran diferencia. Como contratista privado, hace negocios con la Autoridad pero no figura en su nómina. El régimen de Luna es severo e injusto, la revolución se masca en el ambiente y se habla incluso de derrocar a la odiada Autoridad. Cuando Mannie ayuda a la preciosa Wyoming Knott a escapar de los guardaespaldas del Guardián, se encuentra de alguna manera en el centro de una rebelión sin esperanza. Aunque Mannie tiene un arma secreta: Mike es el ordenador más inteligente de la colonia, está conectado a toda clase de equipos útiles. . . Y Mannie es el mejor amigo de Mike. La Luna es una Cruel Amante, ganadora del Premio Hugo, es una brillante obra de uno de los maestros más reconocidos, que mezcla un estilo elegante y de ritmo vertiginoso con personajes fascinantes, unos diálogos ingeniosos e ideas que hacen reflexionar.</string>
 </resources>

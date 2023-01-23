@@ -6,27 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.fragments.BooksListFragment">
-<!--
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
--->
-    <!-- RecyclerView para mostrar una lista de libros -->
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollingCache="true"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".ejercicio01.DocumentosFragment">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <!-- Layout para agregar la lista de documentos disponibles -->
+            <!-- Layout para agregar la lista de libros disponibles -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/reciclerView"
                 android:layout_width="match_parent"

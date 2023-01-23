@@ -48,9 +48,11 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
                         tvTitle.text = response.body()?.title
                         tvAuthor.text = response.body()?.author
                         tvRelease.text = this@BookDetailFragment.requireContext()
-                            .getString(R.string.book_release_label)
-                            .plus(" ")
-                            .plus(response.body()?.release)
+                            .getString(R.string.book_release_label, response.body()?.release)
+                        tvEditorial.text = this@BookDetailFragment.requireContext()
+                            .getString(R.string.book_editorial_label, response.body()?.editorial)
+                        tvIsbn.text = this@BookDetailFragment.requireContext()
+                            .getString(R.string.book_isbn_label, response.body()?.isbn)
                         tvSinopsys.text = response.body()?.synopsis
                         tvGenre.text = response.body()?.genre
                         loader.visibility = View.GONE
