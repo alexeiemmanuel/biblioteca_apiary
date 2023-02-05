@@ -140,6 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="50dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/grey_80"
                 tools:text="@string/book_description_test" />
@@ -148,9 +149,25 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/primary"
+        android:tint="@color/white"
+        app:tint="@null"
+        android:clickable="true"
+        app:fabSize="normal"
+        app:layout_anchor="@id/app_bar_layout"
+        app:layout_anchorGravity="bottom|right|end"
+        app:srcCompat="@drawable/ic_place_map" />
+
     <!-- Agregamos un ProgressBar para dar el efecto de carga -->
     <ProgressBar
         android:id="@+id/loader"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center" />

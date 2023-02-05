@@ -4,8 +4,8 @@ import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.aemm.libreria.R
 import com.aemm.libreria.databinding.FragmentBookDetailBinding
@@ -60,6 +60,19 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
                         Glide.with(this@BookDetailFragment.requireContext())
                             .load(response.body()?.thumbnail)
                             .into(ivPhoto)
+
+                        fabMap.setOnClickListener {
+                            val directions =
+                                response.body()?.let { bookDetail ->
+                                    BookDetailFragmentDirections.actionBookDetailFragmentToBookMapFragment(
+                                        bookDetail
+                                    )
+                                }
+
+                            if (directions != null) {
+                                it.findNavController().navigate(directions)
+                            }
+                        }
                     }
                 }
 

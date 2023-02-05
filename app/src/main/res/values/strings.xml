@@ -19,4 +19,6 @@
     <string name="book_release_test">Agregado: 05 Apr 1988</string>
     <string name="book_editorial_test">Editorial: Porrua</string>
     <string name="book_description_test">Aunque sus abuelos fueron recluidos en su día en la colonia, Mannie nació libre y eso supone una gran diferencia. Como contratista privado, hace negocios con la Autoridad pero no figura en su nómina. El régimen de Luna es severo e injusto, la revolución se masca en el ambiente y se habla incluso de derrocar a la odiada Autoridad. Cuando Mannie ayuda a la preciosa Wyoming Knott a escapar de los guardaespaldas del Guardián, se encuentra de alguna manera en el centro de una rebelión sin esperanza. Aunque Mannie tiene un arma secreta: Mike es el ordenador más inteligente de la colonia, está conectado a toda clase de equipos útiles. . . Y Mannie es el mejor amigo de Mike. La Luna es una Cruel Amante, ganadora del Premio Hugo, es una brillante obra de uno de los maestros más reconocidos, que mezcla un estilo elegante y de ritmo vertiginoso con personajes fascinantes, unos diálogos ingeniosos e ideas que hacen reflexionar.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

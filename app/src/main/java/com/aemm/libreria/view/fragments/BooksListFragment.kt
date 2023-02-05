@@ -43,7 +43,7 @@ class BooksListFragment : Fragment(R.layout.fragment_books_list) {
     /**
      * Método que consulta la API para obtener un lista random de Books
      */
-    fun getListBooks(){
+    private fun getListBooks(){
 
         CoroutineScope(Dispatchers.IO).launch {
 

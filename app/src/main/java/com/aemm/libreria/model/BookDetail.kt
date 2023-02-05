@@ -1,7 +1,10 @@
 package com.aemm.libreria.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class BookDetail(
     @SerializedName("id")
     val id: String? = null,
@@ -31,5 +34,17 @@ data class BookDetail(
     val synopsis: String? = null,
 
     @SerializedName("thumbnail")
-    val thumbnail: String? = null
-)
+    val thumbnail: String? = null,
+
+    @SerializedName("localization")
+    val localization: Localization,
+) : Parcelable
+
+@Parcelize
+data class Localization(
+    @SerializedName("latitude")
+    val latitude: Double,
+
+    @SerializedName("longitude")
+    val longitude: Double
+) : Parcelable

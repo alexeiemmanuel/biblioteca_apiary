@@ -22,5 +22,17 @@
         <argument
             android:name="idBook"
             app:argType="string" />
+        <action
+            android:id="@+id/action_bookDetailFragment_to_bookMapFragment"
+            app:destination="@id/bookMapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookMapFragment"
+        android:name="com.aemm.libreria.view.fragments.BookMapFragment"
+        android:label="fragment_book_map"
+        tools:layout="@layout/fragment_book_map" >
+        <argument
+            android:name="bookDetail"
+            app:argType="com.aemm.libreria.model.BookDetail" />
     </fragment>
 </navigation>
