@@ -9,6 +9,7 @@
     <string name="book_release_label">Agregado: %s</string>
     <string name="book_isbn_label">ISBN: %s</string>
     <string name="book_editorial_label">Editorial: %s</string>
+    <string name="book_editorial_map">Horario: %s\n\nTeléfono: %s</string>
 
     <string name="message_network_error_title">Error de red.</string>
     <string name="message_network_error_message">Upps los sentimos no tienes conexión a internet.</string>
@@ -18,15 +19,16 @@
     <string name="message_form_error_password">Se requiere una contraseña o la contraseña no tiene por lo menos 8 caracteres</string>
 
     <!-- Errores de Firebase -->
-    <string name="ERROR_INVALID_EMAIL">Error: El correo electrónico no tiene un formato valido</string>
-    <string name="ERROR_WRONG_PASSWORD">Error: La contraseña no es válida</string>
-    <string name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL">Error: Una cuenta ya existe con el mismo correo, pero con diferentes datos de acceso</string>
-    <string name="ERROR_EMAIL_ALREADY_IN_USE">Error: el correo electrónico ya está en uso con otra cuenta.</string>
-    <string name="ERROR_USER_TOKEN_EXPIRED">Error: La sesión ha expirado. Favor de ingresar nuevamente</string>
-    <string name="ERROR_USER_NOT_FOUND">Error: No existe el usuario con la información proporcionada</string>
-    <string name="ERROR_WEAK_PASSWORD">Error: La contraseña porporcionada es inválida</string>
-    <string name="NO_NETWORK">Error: Red no disponible o se interrumpió la conexión</string>
-    <string name="ERROR_DEFAULT">Error: No se pudo autenticar exitosamente</string>
+    <string name="ERROR_FIREBASE_TITLE">Algo ha ocurrido...</string>
+    <string name="ERROR_INVALID_EMAIL">El correo electrónico no tiene un formato valido</string>
+    <string name="ERROR_WRONG_PASSWORD">La contraseña no es válida</string>
+    <string name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL">Una cuenta ya existe con el mismo correo, pero con diferentes datos de acceso</string>
+    <string name="ERROR_EMAIL_ALREADY_IN_USE">El correo electrónico ya está en uso con otra cuenta.</string>
+    <string name="ERROR_USER_TOKEN_EXPIRED">La sesión ha expirado. Favor de ingresar nuevamente</string>
+    <string name="ERROR_USER_NOT_FOUND">No existe el usuario con la información proporcionada</string>
+    <string name="ERROR_WEAK_PASSWORD">La contraseña porporcionada no es válida, debe tener por lo menos 6 caracteres</string>
+    <string name="NO_NETWORK">Red no disponible o se interrumpió la conexión</string>
+    <string name="ERROR_DEFAULT">No se pudo autenticar exitosamente</string>
 
     <!-- Componentes del Formulario -->
     <string name="btn_login">Iniciar sesión</string>
@@ -36,6 +38,7 @@
     <string name="btn_record">Registro</string>
 
 
+    <string name="dialog_btn_positive_agreed">Aceptar</string>
     <string name="dialog_btn_positive">Enviar</string>
     <string name="dialog_btn_negative">Cancelar</string>
 
@@ -51,7 +54,8 @@
     <string name="dialog_recovery_sucess">El enlace para restablecer la contraseña ha sido enviado a su correo</string>
     <string name="dialog_recovery_failure">El enlace no se ha podido enviar: %s</string>
 
-
+    <string name="dialog_verfy_acount">Cuenta no verificada</string>
+    <string name="dialog_verfy_acount_message">La cuenta no se ha activado, se le enviara un correo de verificación a la siguiente cuenta %s para poder activarla</string>
 
     <!-- Textos de prueba para que se muestren en el diseño de las layouts -->
     <string name="book_title_test">La luna es una cruel amante</string>

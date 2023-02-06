@@ -78,10 +78,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="3dp"
-                android:text="@string/book_title_test"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="@string/book_title_test" />
 
             <TextView
                 android:id="@+id/tvAuthor"
@@ -106,23 +106,25 @@
                     android:id="@+id/tvEditorial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="@string/book_editorial_test"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:textColor="@color/grey_60" />
+                    android:textColor="@color/grey_60"
+                    tools:text="@string/book_editorial_test" />
+
                 <TextView
                     android:id="@+id/tvIsbn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="@string/book_isbn_test"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:textColor="@color/grey_60" />
+                    android:textColor="@color/grey_60"
+                    tools:text="@string/book_isbn_test" />
+
                 <TextView
                     android:id="@+id/tvRelease"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="@string/book_release_test"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:textColor="@color/grey_60" />
+                    android:textColor="@color/grey_60"
+                    tools:text="@string/book_release_test" />
             </LinearLayout>
 
             <ImageView
@@ -155,20 +157,20 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:backgroundTint="@color/primary"
-        android:tint="@color/white"
-        app:tint="@null"
         android:clickable="true"
+        android:tint="@color/white"
         app:fabSize="normal"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|right|end"
-        app:srcCompat="@drawable/ic_place_map" />
+        app:srcCompat="@drawable/ic_place_map"
+        app:tint="@null" />
 
     <!-- Agregamos un ProgressBar para dar el efecto de carga -->
     <ProgressBar
         android:id="@+id/loader"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/primary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primary" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

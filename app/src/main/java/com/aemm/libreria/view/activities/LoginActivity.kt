@@ -6,7 +6,6 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -16,7 +15,6 @@ import androidx.security.crypto.MasterKey
 import com.aemm.libreria.R
 import com.aemm.libreria.databinding.ActivityLoginBinding
 import com.aemm.libreria.util.Constants
-import com.aemm.libreria.util.Constants.ACOUNT_FILE
 import com.aemm.libreria.util.EnumFirebaseCode
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
@@ -32,14 +30,6 @@ class LoginActivity : AppCompatActivity() {
     //Para Firebase
     private lateinit var firebaseAuth: FirebaseAuth
 
-    // Shared preferences encriptadas
-    private lateinit var encryptedSharedPreferences: EncryptedSharedPreferences
-    private lateinit var encryptedSharedPrefsEditor: SharedPreferences.Editor
-
-    // Shared Preferences
-    private var usuarioSp: String? = ""
-    private var contraseniaSp: String? = ""
-
     // Campos para validar
     private var email: String = ""
     private var contrasenia: String = ""
@@ -52,30 +42,6 @@ class LoginActivity : AppCompatActivity() {
 
         //Instanciando mi objeto de firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
-
-        try {
-            //Creando la llave para encriptar
-            val masterKeyAlias = MasterKey.Builder(this, MasterKey.DEFAULT_MASTER_KEY_ALIAS)
-                .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-                .build()
-
-            encryptedSharedPreferences = EncryptedSharedPreferences
-                .create(
-                    this,
-                    Constants.ACOUNT_FILE,
-                    masterKeyAlias,
-                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
-                ) as EncryptedSharedPreferences
-        } catch (e: GeneralSecurityException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-
-        this.encryptedSharedPrefsEditor = this.encryptedSharedPreferences.edit()
-        this.usuarioSp = this.encryptedSharedPreferences.getString("usuarioSp", "0")
-        this.contraseniaSp = this.encryptedSharedPreferences.getString("contraseniaSp", "0")
 
         binding.formBtnLogin.setOnClickListener {
             if (!validaCampos()) return@setOnClickListener
@@ -95,17 +61,28 @@ class LoginActivity : AppCompatActivity() {
                     if (authResult.isSuccessful) {
                         //Enviar correo para verificación de email
                         var user_fb = firebaseAuth.currentUser
+                        val dialog = AlertDialog.Builder(it.context)
                         user_fb?.sendEmailVerification()?.addOnSuccessListener {
-                            Toast.makeText(this, getString(R.string.dialog_create_sucess), Toast.LENGTH_SHORT).show()
+                            dialog.setMessage(getString(R.string.dialog_create_sucess))
+                            dialog.setPositiveButton(
+                                getString(R.string.dialog_btn_positive_agreed),
+                                DialogInterface.OnClickListener { _, _ ->
+                                    val intent = Intent(this, LibraryActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }
+                            )
+                            dialog.create().show()
                         }?.addOnFailureListener {
-                            Toast.makeText(this, getString(R.string.dialog_create_failure), Toast.LENGTH_SHORT).show()
+                            dialog.setMessage(getString(R.string.dialog_create_failure))
+                            dialog.setPositiveButton(
+                                getString(R.string.dialog_btn_positive_agreed),
+                                DialogInterface.OnClickListener { _, _ ->
+                                }
+                            )
+                            dialog.create().show()
                         }
 
-                        Toast.makeText(this, getString(R.string.dialog_create_message), Toast.LENGTH_SHORT).show()
-
-                        val intent = Intent(this, LibraryActivity::class.java)
-                        startActivity(intent)
-                        finish()
                     } else {
                         binding.progressBar.visibility = View.GONE
                         manejaErrores(authResult)
@@ -154,7 +131,7 @@ class LoginActivity : AppCompatActivity() {
             return false
         }
 
-        if (this.contrasenia.isEmpty() || this.contrasenia.length < 8) {
+        if (this.contrasenia.isEmpty() || this.contrasenia.length < 6) {
             binding.formPassword.error = getString(R.string.message_form_error_password)
             binding.formPassword.requestFocus()
             return false
@@ -189,48 +166,54 @@ class LoginActivity : AppCompatActivity() {
             EnumFirebaseCode.NO_NETWORK
         }
 
+        val errorFirebaseDialog = AlertDialog.Builder(this)
+        errorFirebaseDialog.setTitle(getString(R.string.ERROR_FIREBASE_TITLE))
+
         when (errorCode) {
             EnumFirebaseCode.ERROR_INVALID_EMAIL -> {
-                Toast.makeText(this, getString(R.string.ERROR_INVALID_EMAIL), Toast.LENGTH_SHORT)
-                    .show()
-                //binding.tietEmail.error = "Error: El correo electrónico no tiene un formato correcto"
-                //binding.tietEmail.requestFocus()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_INVALID_EMAIL))
+                binding.formUser.error = getString(R.string.message_form_error_user)
+                binding.formUser.requestFocus()
             }
             EnumFirebaseCode.ERROR_WRONG_PASSWORD -> {
-                Toast.makeText(this, getString(R.string.ERROR_WRONG_PASSWORD), Toast.LENGTH_SHORT)
-                    .show()
-                //binding.tietContrasenia.error = "La contraseña no es válida"
-                //binding.tietContrasenia.requestFocus()
-                //binding.tietContrasenia.setText("")
-
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_WRONG_PASSWORD))
+                binding.formPassword.error = getString(R.string.ERROR_WRONG_PASSWORD)
+                binding.formPassword.requestFocus()
+                binding.formPassword.setText("")
             }
             EnumFirebaseCode.ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL -> {
-                //An account already exists with the same email address but different sign-in credentials. Sign in using a provider associated with this email address.
-                Toast.makeText(this, getString(R.string.ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL), Toast.LENGTH_SHORT).show()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL))
             }
             EnumFirebaseCode.ERROR_EMAIL_ALREADY_IN_USE -> {
-                Toast.makeText(this, getString(R.string.ERROR_EMAIL_ALREADY_IN_USE), Toast.LENGTH_LONG).show()
-                //binding.tietEmail.error = ("Error: el correo electrónico ya está en uso con otra cuenta.")
-                //binding.tietEmail.requestFocus()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_EMAIL_ALREADY_IN_USE))
+                binding.formUser.error = getString(R.string.ERROR_EMAIL_ALREADY_IN_USE)
+                binding.formUser.requestFocus()
             }
             EnumFirebaseCode.ERROR_USER_TOKEN_EXPIRED -> {
-                Toast.makeText(this, getString(R.string.ERROR_USER_TOKEN_EXPIRED), Toast.LENGTH_LONG).show()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_USER_TOKEN_EXPIRED))
             }
             EnumFirebaseCode.ERROR_USER_NOT_FOUND -> {
-                Toast.makeText(this, getString(R.string.ERROR_USER_NOT_FOUND), Toast.LENGTH_LONG).show()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_USER_NOT_FOUND))
             }
             EnumFirebaseCode.ERROR_WEAK_PASSWORD -> {
-                Toast.makeText(this, getString(R.string.ERROR_WEAK_PASSWORD), Toast.LENGTH_LONG).show()
-                //binding.tietContrasenia.error = "La contraseña debe de tener por lo menos 6 caracteres"
-                //binding.tietContrasenia.requestFocus()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_WEAK_PASSWORD))
+                binding.formPassword.error = getString(R.string.ERROR_WEAK_PASSWORD)
+                binding.formPassword.requestFocus()
             }
             EnumFirebaseCode.NO_NETWORK -> {
-                Toast.makeText(this, getString(R.string.NO_NETWORK), Toast.LENGTH_LONG).show()
+                errorFirebaseDialog.setMessage(getString(R.string.NO_NETWORK))
             }
             else -> {
-                Toast.makeText(this, getString(R.string.ERROR_DEFAULT), Toast.LENGTH_SHORT).show()
+                errorFirebaseDialog.setMessage(getString(R.string.ERROR_DEFAULT))
             }
         }
+
+        errorFirebaseDialog.setPositiveButton(
+            getString(R.string.dialog_btn_positive_agreed),
+            DialogInterface.OnClickListener { dialog, which ->
+
+            }
+        ).show()
 
     }
 

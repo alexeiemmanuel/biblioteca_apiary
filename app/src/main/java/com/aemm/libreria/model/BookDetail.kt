@@ -22,7 +22,7 @@ data class BookDetail(
     val edition: String? = null,
 
     @SerializedName("editorial")
-    val editorial: String? = null,
+    val editorial: Editorial? = null,
 
     @SerializedName("isbn")
     val isbn: String? = null,
@@ -34,14 +34,21 @@ data class BookDetail(
     val synopsis: String? = null,
 
     @SerializedName("thumbnail")
-    val thumbnail: String? = null,
-
-    @SerializedName("localization")
-    val localization: Localization,
+    val thumbnail: String? = null
 ) : Parcelable
 
 @Parcelize
-data class Localization(
+data class Editorial(
+
+    @SerializedName("name")
+    val name: String? = null,
+
+    @SerializedName("schedule")
+    val schedule: String? = null,
+
+    @SerializedName("telephone")
+    val telephone: String? = null,
+
     @SerializedName("latitude")
     val latitude: Double,
 

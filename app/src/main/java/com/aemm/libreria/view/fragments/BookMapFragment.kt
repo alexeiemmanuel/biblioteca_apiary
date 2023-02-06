@@ -33,18 +33,22 @@ class BookMapFragment : Fragment(R.layout.fragment_book_map) {
         mapFragment!!.getMapAsync { mMap ->
             mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
             mMap.clear()
-            val coordinates = LatLng(bookDetail.localization.latitude, bookDetail.localization.longitude)
-            val marker = MarkerOptions()
-                .position(coordinates)
-                .title(this@BookMapFragment.requireContext()
-                    .getString(R.string.book_editorial_label, bookDetail.editorial))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.book_map))
-            mMap.addMarker(marker)
-            mMap.animateCamera(
-                CameraUpdateFactory.newLatLngZoom(coordinates, 18f),
-                4000,
-                null
-            )
+            val coordinates = bookDetail.editorial?.let { LatLng(it.latitude, it.longitude) }
+            if(coordinates != null){
+                val marker = MarkerOptions()
+                    .position(coordinates)
+                    .title(this@BookMapFragment.requireContext()
+                        .getString(R.string.book_editorial_label, bookDetail.editorial?.name))
+                    .snippet(this@BookMapFragment.requireContext()
+                        .getString(R.string.book_editorial_map, bookDetail.editorial?.schedule, bookDetail.editorial?.telephone))
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.book_map))
+                mMap.addMarker(marker)
+                mMap.animateCamera(
+                    CameraUpdateFactory.newLatLngZoom(coordinates, 18f),
+                    4000,
+                    null
+                )
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ package com.aemm.libreria.view.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.aemm.libreria.databinding.ActivityLibraryBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class LibraryActivity : AppCompatActivity() {
 
