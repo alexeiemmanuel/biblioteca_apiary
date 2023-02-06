@@ -26,7 +26,9 @@
                 android:scrollbars="vertical"
                 android:padding="3dp"
                 android:background="?android:attr/selectableItemBackground"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/book_element"
+                />
 
             <!-- Agregamos un ProgressBar para dar el efecto de carga -->
             <ProgressBar

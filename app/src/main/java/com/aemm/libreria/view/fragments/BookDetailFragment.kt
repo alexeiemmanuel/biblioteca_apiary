@@ -87,8 +87,6 @@ class BookDetailFragment : Fragment(R.layout.fragment_book_detail) {
 
                     binding.loader.visibility = View.GONE
                 }
-
-
             })
         }
 

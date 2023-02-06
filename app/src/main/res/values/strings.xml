@@ -1,8 +1,11 @@
 <resources>
+
+    <!-- Datos de la App -->
     <string name="app_name">Libreria</string>
     <string name="app_autor">Autor: Alexei Emmanuel Martínez Mendoza</string>
     <string name="app_version">Versión: 1.0</string>
 
+    <!-- Detalles del libro -->
     <string name="book_release_label">Agregado: %s</string>
     <string name="book_isbn_label">ISBN: %s</string>
     <string name="book_editorial_label">Editorial: %s</string>
@@ -10,6 +13,45 @@
     <string name="message_network_error_title">Error de red.</string>
     <string name="message_network_error_message">Upps los sentimos no tienes conexión a internet.</string>
     <string name="message_network_error_dimmis">Aceptar</string>
+
+    <string name="message_form_error_user">Se requiere un correo válido.</string>
+    <string name="message_form_error_password">Se requiere una contraseña o la contraseña no tiene por lo menos 8 caracteres</string>
+
+    <!-- Errores de Firebase -->
+    <string name="ERROR_INVALID_EMAIL">Error: El correo electrónico no tiene un formato valido</string>
+    <string name="ERROR_WRONG_PASSWORD">Error: La contraseña no es válida</string>
+    <string name="ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL">Error: Una cuenta ya existe con el mismo correo, pero con diferentes datos de acceso</string>
+    <string name="ERROR_EMAIL_ALREADY_IN_USE">Error: el correo electrónico ya está en uso con otra cuenta.</string>
+    <string name="ERROR_USER_TOKEN_EXPIRED">Error: La sesión ha expirado. Favor de ingresar nuevamente</string>
+    <string name="ERROR_USER_NOT_FOUND">Error: No existe el usuario con la información proporcionada</string>
+    <string name="ERROR_WEAK_PASSWORD">Error: La contraseña porporcionada es inválida</string>
+    <string name="NO_NETWORK">Error: Red no disponible o se interrumpió la conexión</string>
+    <string name="ERROR_DEFAULT">Error: No se pudo autenticar exitosamente</string>
+
+    <!-- Componentes del Formulario -->
+    <string name="btn_login">Iniciar sesión</string>
+    <string name="form_label_email">Correo electrónico</string>
+    <string name="form_label_password">Contraseña</string>
+    <string name="form_label_recovery_password">¿Has olvidado tu contraseña?</string>
+    <string name="btn_record">Registro</string>
+
+
+    <string name="dialog_btn_positive">Enviar</string>
+    <string name="dialog_btn_negative">Cancelar</string>
+
+    <!-- Dialog para crear la cuenta -->
+    <string name="dialog_create_title">Registro</string>
+    <string name="dialog_create_message">La cuenta ha sido creada exitosamente</string>
+    <string name="dialog_create_sucess">El correo de verificación ha sido enviado</string>
+    <string name="dialog_create_failure">No se pudo enviar el correo de verificación</string>
+
+    <!-- Dialog para recuperar contraseña -->
+    <string name="dialog_recovery_title">Restablecer contraseña</string>
+    <string name="dialog_recovery_message">Ingrese su correo para recibir el enlace para restablecer</string>
+    <string name="dialog_recovery_sucess">El enlace para restablecer la contraseña ha sido enviado a su correo</string>
+    <string name="dialog_recovery_failure">El enlace no se ha podido enviar: %s</string>
+
+
 
     <!-- Textos de prueba para que se muestren en el diseño de las layouts -->
     <string name="book_title_test">La luna es una cruel amante</string>
@@ -19,6 +61,5 @@
     <string name="book_release_test">Agregado: 05 Apr 1988</string>
     <string name="book_editorial_test">Editorial: Porrua</string>
     <string name="book_description_test">Aunque sus abuelos fueron recluidos en su día en la colonia, Mannie nació libre y eso supone una gran diferencia. Como contratista privado, hace negocios con la Autoridad pero no figura en su nómina. El régimen de Luna es severo e injusto, la revolución se masca en el ambiente y se habla incluso de derrocar a la odiada Autoridad. Cuando Mannie ayuda a la preciosa Wyoming Knott a escapar de los guardaespaldas del Guardián, se encuentra de alguna manera en el centro de una rebelión sin esperanza. Aunque Mannie tiene un arma secreta: Mike es el ordenador más inteligente de la colonia, está conectado a toda clase de equipos útiles. . . Y Mannie es el mejor amigo de Mike. La Luna es una Cruel Amante, ganadora del Premio Hugo, es una brillante obra de uno de los maestros más reconocidos, que mezcla un estilo elegante y de ritmo vertiginoso con personajes fascinantes, unos diálogos ingeniosos e ideas que hacen reflexionar.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="form_email_test">johndoe@email.com</string>
 </resources>

@@ -3,16 +3,17 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
+    id 'com.google.gms.google-services'
 }
 
 android {
     namespace 'com.aemm.libreria'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.aemm.libreria"
         minSdk 23
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -70,11 +71,14 @@ dependencies {
     // Refresh
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-    //https://github.com/vinc3m1/RoundedImageView
-    implementation 'com.makeramen:roundedimageview:2.3.0'
-
     //Google Maps
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
+    //Para encriptar las shared preferences
+    implementation 'androidx.security:security-crypto:1.1.0-alpha04'
+
+    //Firebase Auth
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

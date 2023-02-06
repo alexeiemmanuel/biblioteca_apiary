@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aemm.libreria.R
 import com.aemm.libreria.databinding.BookElementBinding
 import com.aemm.libreria.model.Book
-import com.aemm.libreria.view.activities.MainActivity
 import com.aemm.libreria.view.fragments.BooksListFragmentDirections
 import com.bumptech.glide.Glide
 

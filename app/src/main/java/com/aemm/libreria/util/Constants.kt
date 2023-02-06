@@ -1,5 +1,7 @@
 package com.aemm.libreria.util
 
+import android.widget.Toast
+
 object Constants {
 
     /**
@@ -12,4 +14,10 @@ object Constants {
      * el SplashScreen de la aplicación.
      */
     const val DELAY_SPLASH_SCREEN = 3000L
+
+
+    /**
+     * Constante que contiene el nombre del archivo de EncryptSharedPreferences
+     */
+    const val ACOUNT_FILE = "account"
 }
